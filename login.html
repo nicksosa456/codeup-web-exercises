@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Login</title>
 </head>
 <body>
     <form method="POST">
@@ -15,13 +15,10 @@
         <label for="password">Password</label>
         <input id="password" name="password" type="password" required><br><br>
 
-        <label for="comfirm_password">Comfirm Password</label>
-        <input id="comfirm_password" name="password" type="password"><br><br>
+        <input id="logged" name="logged" value="true" type="checkbox" checked>
+        <label for="logged">Keep me logged in for 2 weeks</label><br><br>
 
-        <input id="newsletter_signup" name="newsletter_signup" value="true" type="checkbox" checked>
-        <label for="newsletter_signup">Sign Up For The Email Newsletter</label><br><br>
-
-        <button type="submit">Create New Account!</button>
+        <button type="submit">Login</button>
     </form>
 </body>
 </html>

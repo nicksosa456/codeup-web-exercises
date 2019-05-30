@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <title>Github</title>
     <style>
+        header {
+            color: lightgrey;
+            background-color: black;
+        }
         nav li {
             display: inline-block;
         }
         table img {
             float: left;
+        }
+        h4 {
+            padding-left: 25px;
+            background-color: lightgrey;
+            height: 50px;
         }
         #left-side {
             float: left;
@@ -16,86 +25,98 @@
         #right-side {
             float: right;
         }
+        #devTable {
+            width: 90%;
+            padding-left: 15px;
+            border: 1px solid lightgrey;
+        }
+        #firstP {
+            font-size: 150%;
+        }
+        #secondNav {
+            padding: 0;
+        }
+        #firstNav {
+            padding: 15px;
+        }
+        .imgTab {
+            width: 3%;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><img src="img/30x30.svg" alt="Home button"></li>
-            <li>Pull requests</li>
-            <li>Issues</li>
-            <li>Marketplace</li>
-            <li>Explore</li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul id="firstNav">
+                <li><img src="img/30x30.svg" alt="Home button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>Pull requests&nbsp;&nbsp;&nbsp;</li>
+                <li>Issues&nbsp;&nbsp;&nbsp;</li>
+                <li>Marketplace&nbsp;&nbsp;&nbsp;</li>
+                <li>Explore&nbsp;&nbsp;&nbsp;</li>
+            </ul>
+        </nav>
+    </header>
     <div>
-        <img src="img/30x30.svg" alt="Arrow">Codeup
+        <p id="firstP"><img src="img/30x30.svg" alt="Arrow">&nbsp;&nbsp;Codeup</p>
     </div>
     <nav>
-        <ul>
-            <li>Repositories</li>
-            <li>People</li>
-            <li>Teams</li>
-            <li>Projects</li>
-            <li>Settings</li>
+        <ul id="secondNav">
+            <li>Repositories&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            <li>People&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            <li>Teams&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            <li>Projects&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            <li>Settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
         </ul>
     </nav>
-    <table>
-        <tr>
-            <th>Codeup's dev team</th>
-        </tr>
-        <tr>
-            <td><img src="img/48x48.svg" alt=""></td>
-            <td><a href="#" target="_blank">Kent Beck</a></td>
-        </tr>
-        <tr>
-
-            <td align="center">KentBeck</td>
-            <td align="right">Members</td>
-            <td align="right">1 team</td>
-
-        </tr>
-        <tr>
-            <td><img src="img/48x48.svg" alt=""></td>
-            <td><a href="#" target="_blank">Codeup Instruction Staff</a></td>
-        </tr>
-        <tr>
-            <td align="center">CodeupInstructors</td>
-            <td align="right">Members</td>
-            <td align="right">1 team</td>
-        </tr>
-        <tr>
-            <td><img src="img/48x48.svg" alt=""></td>
-            <td><a href="#" target="_blank">Martin Fowler</a></td>
-            <td align="right">Members</td>
-            <td align="right">0 teams</td>
-        </tr>
-    </table>
-
-<div id="left-side">
-    <table>
-        <tr>
-            <td>&copy; 2018 GitHub, Inc.</td>
-            <td><a href="#" target="_blank">Terms</a></td>
-            <td><a href="#" target="_blank">Privacy</a></td>
-            <td><a href="#" target="_blank">Security</a></td>
-            <td><a href="#" target="_blank">Status</a></td>
-            <td><a href="#" target="_blank">Help</a></td>
-        </tr>
-    </table>
-</div>
-<div id="right-side">
-    <table>
-        <tr>
-            <td><a href="#" target="_blank">Contact GitHub</a></td>
-            <td><a href="#" target="_blank">API</a></td>
-            <td><a href="#" target="_blank">Training</a></td>
-            <td><a href="#" target="_blank">Shop</a></td>
-            <td><a href="#" target="_blank">Blog</a></td>
-            <td><a href="#" target="_blank">About</a></td>
-        </tr>
-    </table>
-</div>
-
+    <h4>Codeup's dev team</h4>
+    <div>
+        <table id="devTable">
+            <tr>
+                <td class="imgTab"><img src="img/48x48.svg" alt=""></td>
+                <td><a href="#" target="_blank">Kent Beck</a><br>KentBeck</td>
+                <td>Members</td>
+                <td>1 team</td>
+            </tr>
+            <tr>
+                <td class="imgTab"><img src="img/48x48.svg" alt=""></td>
+                <td><a href="#" target="_blank">Codeup Instruction Staff</a><br>CodeupInstructors</td>
+                <td>Members</td>
+                <td>1 team</td>
+            </tr>
+            <tr>
+                <td class="imgTab"><img src="img/48x48.svg" alt=""></td>
+                <td><a href="#" target="_blank">Martin Fowler</a></td>
+                <td>Members</td>
+                <td>0 teams</td>
+            </tr>
+        </table>
+    </div>
+    <br> <br>
+    <hr>
+    <br> <br>
+    <div id="left-side">
+        <table>
+            <tr>
+                <td>&copy; 2018 GitHub, Inc.&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Terms</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Privacy</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Security</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Status</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Help</a>&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <div id="right-side">
+        <table>
+            <tr>
+                <td><a href="#" target="_blank">Contact GitHub</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">API</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Training</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Shop</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">Blog</a>&nbsp;&nbsp;&nbsp;</td>
+                <td><a href="#" target="_blank">About</a>&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

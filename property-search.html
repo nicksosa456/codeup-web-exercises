@@ -6,17 +6,57 @@
 </head>
 <body>
     <form method="POST">
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" autofocus="autofocus" required><br><br>
-
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required><br><br>
-
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required><br><br>
-
-        <label for="comfirm_password">Comfirm Password</label>
-        <input id="comfirm_password" name="password" type="password"><br><br>
+        <label for="property-type">House Type
+            <select name="property-type" id="property-type">
+                <option value="any">Any</option>
+                <option value="house">House</option>
+                <option value="apartment">Apartment</option>
+                <option value="townhome">Townhome</option>
+                <option value="condo">Condo</option>
+            </select>
+        </label><br>
+        <label for="square-feet">Square Feet
+            <select name="square-feet" id="square-feet">
+                <option value="any">Any</option>
+                <option value="less-than-1">Less Than 1000</option>
+                <option value="1-2">1000-2000</option>
+                <option value="2-3">2000-3000</option>
+                <option value="3-4">3000-4000</option>
+                <option value="4+">4000+</option>
+            </select>
+        </label><br>
+        <label for="min-price">Min Price
+            <input type="text" id="min-price" name="min-price">
+        </label>
+        <label for="max-price">Max Price
+            <input type="text" id="max-price" name="max-price">
+        </label><br>
+        <label for="zip">Zip Code
+            <input type="text" id="zip" name="zip">
+        </label><br>
+        <label for="bed">Bedrooms
+            <select name="bed" id="bed">
+                <option value="any">Any</option>
+                <option value="1+">1+</option>
+                <option value="2+">2+</option>
+                <option value="3+">3+</option>
+                <option value="4+">4+</option>
+            </select>
+        </label><br>
+        <label for="bath">Bathroom
+            <select name="bath" id="bath">
+                <option value="any">Any</option>
+                <option value="1+">1+</option>
+                <option value="2+">2+</option>
+                <option value="3+">3+</option>
+            </select>
+        </label><br>
+        <label for="garage">
+            <input type="checkbox" id="garage" name="garage" value="true">Must have a garage
+        </label><br>
+        <label for="single">
+            <input type="checkbox" id="single" name="single" value="true">Must be single story
+        </label><br>
 
         <button type="submit">Search Now</button>
     </form>

@@ -1,8 +1,51 @@
 .fancy-header {
     color: purple;
     text-decoration: underline;
+    text-align: center;
 }
 .img-size {
     width: 630px;
     height: 410px;
+}
+h1 {
+    color: #252196;
+    text-decoration: underline;
+}
+h2 {
+    color: #252196;
+    text-decoration: underline;
+}
+body {
+    background-color: #6ba3ff;
+}
+main {
+    color: #cc1616;
+    /*background-image: url(https://tinyurl.com/yb338rfg);*/
+    background-image: url(../img/cat.jpg);
+    background-position: 60% 8%;
+    background-repeat: no-repeat;
+    font-family: 'Righteous', cursive;
+}
+ul {
+    list-style: square;
+}
+tr {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+}
+td {
+    padding: 5px;
+}
+
+a:link {
+    color: #ff7700;
+}
+a:visited {
+    color: #c700ff;
+}
+a:hover {
+    color: #00fff6;
+}
+a:active {
+    color: #ffe900;
 }

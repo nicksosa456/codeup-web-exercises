@@ -19,14 +19,15 @@ h2 {
     text-decoration: underline;
 }
 body {
-    background-color: #6ba3ff;
+    /*background-color: #009698;*/
+    background: url("../img/green-fence.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 main {
     color: #cc1616;
     /*background-image: url(https://tinyurl.com/yb338rfg);*/
-    background-image: url("../img/cat.jpg");
-    background-position: 60% 8%;
-    background-repeat: no-repeat;
+    /*background-image: url("../img/bright-bulb.jpg");*/
+    /*background-repeat: no-repeat;*/
     font-family: 'Righteous', cursive;
 }
 #hover:hover {
@@ -42,19 +43,19 @@ ul {
 table {
     width: 65%;
     border-collapse: collapse;
-    border: 2px solid #5cff47;
+    border: 2px solid #39cc39;
 }
 tr {
     font-family: 'Cinzel', serif;
     font-size: 1.2em;
-    border: 2px solid #5cff47;
+    border: 2px solid #39cc39;
     text-align: center;
 }
 td {
     padding: 5px;
     height: 50px;
     vertical-align: middle;
-    border: 2px solid #5cff47;
+    border: 2px solid #39cc39;
 }
 
 a:link {
@@ -72,4 +73,10 @@ a:active {
 footer {
     font-weight: bold;
     font-size: 150%;
+}
+.center {
+    text-align: center;
+}
+.cenTab {
+    margin: 0 auto;
 }

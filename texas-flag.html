@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Texas Flag</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        #container {
+            margin: 0 auto;
+            width: 100%;
+        }
+        #blueBox {
+            background-color: #002365;
+            height: 40em;
+            width: 20em;
+            float: left;
+        }
+        #whiteBox {
+            background: #FFF;
+            float: left;
+            width: 40em;
+            height: 20em;
+        }
+        #redBox {
+            background-color: #C2072E;
+            float: left;
+            width: 40em;
+            height: 20em;
+        }
+        #star-five {
+            margin: 50px 0;
+            position: relative;
+            display: block;
+            color: white;
+            width: 0px;
+            height: 0px;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid white;
+            border-left: 100px solid transparent;
+            transform: rotate(35deg);
+            top: 280px;
+            left: 60px;
+        }
+        #star-five:before {
+            border-bottom: 80px solid white;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: -45px;
+            left: -65px;
+            display: block;
+            content: '';
+            transform: rotate(-35deg);
+        }
+        #star-five:after {
+            position: absolute;
+            display: block;
+            color: white;
+            top: 3px;
+            left: -105px;
+            width: 0px;
+            height: 0px;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid white;
+            border-left: 100px solid transparent;
+            transform: rotate(-70deg);
+            content: '';
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="blueBox"></div>
+        <div id="whiteBox"></div>
+        <div id="redBox"></div>
+    </div>
+    <div id="star-five"></div>
+</body>
+</html>

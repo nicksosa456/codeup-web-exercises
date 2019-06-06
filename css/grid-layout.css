@@ -1,0 +1,45 @@
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.row {
+    width: 100%;
+}
+
+.row:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    border: 1px solid green;
+    background: mediumslateblue;
+    color: darkorange;
+}
+
+.column.one-half {
+    width: calc(50% - 22px);
+
+}
+
+.column.one-third {
+    width: calc(calc(100% / 3) - 22px);
+
+}
+
+.column.one-fourth {
+    width: calc(25% - 22px);
+}
+
+.column.one-sixth {
+    width: calc(calc(100% / 6) - 22px);
+}
+
+.column.one-eighth {
+    width: calc(12.5% - 22px);
+}

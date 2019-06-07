@@ -1,0 +1,40 @@
+.navbar {
+    border: 1px solid lightgrey;
+    margin: 1em 0;
+}
+.active {
+    background-color: lightgrey;
+}
+
+.pizza {
+    background-image: url(https://java.codeup.com/examples/bootstrap/pizza.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.welcome {
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+input {
+    margin-left: 6em;
+}
+
+.list-group-item {
+    /*padding: 1.5em;*/
+}
+
+.form-check-input {
+    margin-left: .1em;
+}
+
+.form-check-label {
+    margin-left: 1.3em;
+}
+
+[data-icon]:before {
+    font-family: "icons" ; /* BYO icon font, mapped smartly */
+    content: attr(data-icon);
+    speak: none; /* Not to be trusted, but hey. */
+}

@@ -18,28 +18,49 @@
     float: left;
     padding: 10px;
     border: 1px solid green;
-    background: mediumslateblue;
-    color: darkorange;
+    /*background: mediumslateblue;*/
+    /*color: darkorange;*/
 }
 
 .column.one-half {
     width: calc(50% - 22px);
-
+    background-color: mediumpurple;
 }
 
 .column.one-third {
     width: calc(calc(100% / 3) - 22px);
-
+    background-color: greenyellow;
 }
 
 .column.one-fourth {
     width: calc(25% - 22px);
+    background-color: salmon;
 }
 
 .column.one-sixth {
     width: calc(calc(100% / 6) - 22px);
+    background-color: powderblue;
 }
 
 .column.one-eighth {
     width: calc(12.5% - 22px);
+    background-color: khaki;
+ }
+
+@media screen and (min-width: 1px) and (max-width: 990px) {
+    .column.one-half {
+        width: 100%;
+    }
+    .column.one-third {
+        width: 100%;
+    }
+    .column.one-fourth {
+        width: 100%;
+    }
+    .column.one-sixth {
+        width: 100%;
+    }
+    .column.one-eighth {
+        width: 100%;
+    }
 }

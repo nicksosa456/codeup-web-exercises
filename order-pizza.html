@@ -9,6 +9,7 @@
     <title>Order Pizza</title>
 </head>
 <body>
+    <!-- This section is for the top Navbar-->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,10 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pizza World <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Pizza World </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Order Online</a>
+                    <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Menu</a>
@@ -32,38 +33,41 @@
                     </form>
                 </li>
             </ul>
-            <form class="nav-item">
-<!--                <img src="img/sign-in-image.png" class="img-thumbnail" alt="sign up">-->
-                <a class="nav-link" href="#">Sign up</a>
-            </form>
+            <a class="nav-link text-secondary hover" href="#"><i class="material-icons">account_box</i>Sign up</a>
         </div>
     </nav>
 
-
+    <!--  Here is the Jumbotron   -->
 
     <div class="pizza jumbotron jumbotron-fluid d-none d-sm-block">
             <h1 class="welcome display-3">Welcome to Pizza World!</h1>
     </div>
 
     <h2>Build your own pizza!</h2>
+
     <hr/>
+
+    <!--  First Card, Nav Tabs  -->
+
     <div class="card">
-        <div class="card-header">
+        <div class="card-header" id="top">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><span class="badge badge-dark">1</span> Size and crust</a>
+                    <a class="nav-link active" href="#size"><span class="badge badge-dark">1</span> Size and crust</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="badge badge-dark">2</span> Cheese and Sauce</a>
+                    <a class="nav-link" href="#cheese"><span class="badge badge-dark">2</span> Cheese and Sauce</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="badge badge-dark">3</span> Toppings</a>
+                    <a class="nav-link" href="#topping"><span class="badge badge-dark">3</span> Toppings</a>
                 </li>
             </ul>
         </div>
 
-        <div class="card">
-            <h5 class="card-header bg-info">Choose size and crust</h5>
+        <!--    Next Card for Size/Crust    -->
+
+        <div class="card cBorder">
+            <h5 class="card-header bg-info" id="size">Choose size and crust</h5>
             <div class="card-body">
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-secondary">Hand Tossed</li>
@@ -92,11 +96,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="card-footer text-right"><a href="#" class="btn btn-primary">Next Step►</a></div>
+            <div class="card-footer text-right"><a href="#cheese" class="btn btn-primary">Next Step►</a></div>
         </div>
 
-        <div class="card">
-            <h5 class="card-header bg-info">Choose Cheese and Sauce</h5>
+        <!--   Card for Cheese and Sauce     -->
+
+        <div class="card cBorder">
+            <h5 class="card-header bg-info" id="cheese">Choose Cheese and Sauce</h5>
             <div class="card-body">
                 <ul class="list-group form-group">
                     <li class="list-group-item list-group-item-secondary">Cheese</li>
@@ -135,11 +141,13 @@
                 </ul>
             </div>
 
-            <div class="card-footer text-right"><a href="#" class="btn btn-primary">◀︎Previous Step</a><a href="#" class="btn btn-primary">Next Step▶︎</a></div>
+            <div class="card-footer text-right"><a href="#size" class="btn btn-primary">◀︎Previous Step</a><a href="#topping" class="btn btn-primary">Next Step▶︎</a></div>
         </div>
 
-        <div class="card">
-            <h5 class="card-header bg-info">Choose Toppings</h5>
+        <!--  Card for Toppings   -->
+
+        <div class="card cBorder">
+            <h5 class="card-header bg-info" id="topping">Choose Toppings</h5>
             <div class="card-body">
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-secondary">Choose Meats</li>
@@ -184,12 +192,11 @@
                 </ul>
             </div>
 
-            <div class="card-footer text-right"><a href="#" class="btn btn-primary">Checkout <i class="material-icons">
+            <div class="card-footer text-right"><a href="#top" class="btn btn-primary">Back to the Top</a><a href="#" class="btn btn-primary">Checkout <i class="material-icons">
                 shopping_cart</i></a></div>
 
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

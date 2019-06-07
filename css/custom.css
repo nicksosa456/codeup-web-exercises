@@ -33,8 +33,12 @@ input {
     margin-left: 1.3em;
 }
 
-[data-icon]:before {
-    font-family: "icons" ; /* BYO icon font, mapped smartly */
-    content: attr(data-icon);
-    speak: none; /* Not to be trusted, but hey. */
+.material-icons {
+    position: relative;
+    top: .2em;
+}
+
+.cBorder {
+    border: 2px solid #BDE5EA;
+    border-top: 0;
 }

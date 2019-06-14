@@ -213,19 +213,19 @@ function calculateTotal(luck, total) {
             // Number(console.log("Your total is $"+(0)+total));
             break;
         case 1:
-            alert("You receive 10% off today, how nice!"+"\n"+"Your new total is $"+Number((total-(total*.10)).toFixed(2)));
+            alert("You receive 10% off today, how nice!"+"\n"+"Your new total is $"+Number((total-(total*.10))).toFixed(2));
             // Number(console.log("Your new total is $"+(total-(total*.10)).toFixed(2)));
             break;
         case 2:
-            alert("Looking good, you got 25% off!"+"\n"+"Your new total is $"+Number((total-(total*.25)).toFixed(2)));
+            alert("Looking good, you got 25% off!"+"\n"+"Your new total is $"+Number((total-(total*.25))).toFixed(2));
             // Number(console.log("Your new total is $"+(total-(total*.25)).toFixed(2)));
             break;
         case 3:
-            alert("Hey, look at you, 35% your purchase today!"+"\n"+"Your new total is $"+Number((total-(total*.35)).toFixed(2)));
+            alert("Hey, look at you, 35% your purchase today!"+"\n"+"Your new total is $"+Number((total-(total*.35))).toFixed(2));
             // Number(console.log("Your new total is $"+(total-(total*.35)).toFixed(2)));
             break;
         case 4:
-            alert("Your luck got you 50% off today!"+"\n"+"Your new total is $"+Number((total-(total*.50)).toFixed(2)));
+            alert("Your luck got you 50% off today!"+"\n"+"Your new total is $"+Number((total-(total*.50))).toFixed(2));
             // Number(console.log("Your new total is $"+(total-(total*.50)).toFixed(2)));
             break;
         case 5:

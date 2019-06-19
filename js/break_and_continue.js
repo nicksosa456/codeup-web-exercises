@@ -1,5 +1,7 @@
 (function () {
 
+    "use strict";
+
     var enterNum = parseInt(prompt("Pick an odd number between 1 and 50."));
 
     function isEven(a) {
@@ -8,7 +10,7 @@
 
 
     while (true) {
-        if (isEven(enterNum) || enterNum > 50 || isNaN(enterNum)) {
+        if (isEven(enterNum) || enterNum > 50 || enterNum < 0 || isNaN(enterNum)) {
             enterNum = parseInt(prompt("Please enter a valid odd number."));
         } else {
             console.log("You picked number "+enterNum);

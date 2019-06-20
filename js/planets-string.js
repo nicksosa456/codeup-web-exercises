@@ -28,6 +28,6 @@
     var joinPlanets = planetsArray.join('<br>');
     console.log(joinPlanets);
 
-    var listPlanets = planetsArray;
+    var listPlanets = "<ul><li>" + planetsArray.join('</li><li>') + "</li></ul>";
 
 })();

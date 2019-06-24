@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>DOM: Query and Modify</title>
 </head>
-<body>
+<body id="purp">
 
 <h1 id="main-header">Hello World!</h1>
 <ul>
@@ -25,6 +25,14 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="btn1" type="button">Change Header</button>
+<br><br>
+<button id="btn2" type="button">Change Subheader</button>
+<br><br>
+<button id="btn3" type="button">Change List Items</button>
+<br><br>
+<button id="btn4" type="button">Change Paragraph</button>
+
 <script>
     (function() {
         "use strict";
@@ -32,34 +40,61 @@
         var mainHeader = document.getElementById('main-header');
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = 'JavaScript is Cool';
+        // mainHeader.innerHTML = 'JavaScript is Cool';
+        var changeMain = function () {
+            mainHeader.innerHTML = 'JavaScript is Cool';
+        };
+        document.getElementById('btn1').addEventListener('click', changeMain, false);
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue";
+        // subHeader.style.color = "blue";
+        var changeSub = function () {
+            subHeader.style.color = 'blue';
+        };
+        document.getElementById('btn2').addEventListener('click', changeSub, false);
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
 
         // TODO: Set text color on every other list item to grey
-        for (var i = 0; i <= listItems.length; i +=2) {
-            if (listItems[i].getAttribute('data-dbid') === '1') {
-                listItems[i].style.color = 'blue';
-            } else {
-                listItems[i].style.color = "grey";
+        var changeList = function () {
+            for (var i = 0; i <= listItems.length; i +=2) {
+                if (listItems[i].getAttribute('data-dbid') === '1') {
+                    listItems[i].style.color = 'blue';
+                } else {
+                    listItems[i].style.color = "grey";
+                }
             }
-        }
+        };
+        document.getElementById('btn3').addEventListener('click', changeList, false);
 
         // TODO: Set text color of li with dbid = 1 to blue
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
-        console.log(subParagraphs);
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished!";
+        // subParagraphs[0].innerHTML = "Mission Accomplished!";
+        var changeSubP = function () {
+            subParagraphs[0].innerText = "Mission Accomplished!";
+        };
+        document.getElementById('btn4').addEventListener('click', changeSubP, false);
+
+        // 1. When a user hits the "g" key, the background of the page should turn purple.
+        document.addEventListener('keydown', function (event){
+            if (event.code === 'KeyG'){
+                document.getElementById('purp').style.backgroundColor = 'purple';
+            }
+        }, false)
+
+        // 2. Every time the enter key is pressed, increment and display a counter that
+        // shows the total number of times the enter key has been pressed.
+
+        // 3. When someone types 1, 2, 3 in a row, show an alert that says "You get a 50%
+        // discount!".
 
     })();
 </script>

@@ -18,22 +18,162 @@
 
 <h1>My First Mapbox Map!</h1>
 
+<button id="btn">Click</button>
+
+<select id="zoom">
+    <option value=""></option>
+    <option id="zoomFive" value="five">5</option>
+    <option id="zoomFifteen" value="fifteen">15</option>
+    <option id="zoomTwenty" value="twenty">20</option>
+</select>
+
+<form id="address" action="">
+    Enter address: <input type="text" name="fname">
+    <input type="submit" value="Submit">
+</form>
+
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 
 <!-- Custom JS -->
 <script>
     mapboxgl.accessToken = mapToken;
-    var map = new mapboxgl.Map({
+
+    // var sanAntonio;
+    geocode('San Antonio, TX', mapToken).then(function(SATX){
+        var sanAntonio = SATX;
+        var mapOptions = {
         container: 'map',
         style: 'mapbox://styles/mapbox/outdoors-v10',
-        zoom: 11,
-        center: [-98.4916, 29.4252]
+        zoom: 10,
+        center: sanAntonio
+    };
+
+        var map = new mapboxgl.Map(mapOptions);
+
+        var favoriteRestaurants = [
+            {name: "Wild Goji Restaurant & Bar"},
+            {name: "The Magnolia Pancake Haus"},
+            {name: "Creamistry"}
+        ];
+
+        favoriteRestaurants.forEach(function (item) {
+            geocode(item.name+", San Antonio, TX", mapToken).then(function (coord) {
+                var popup1 = new mapboxgl.Popup({closeButton: true})
+                    .setHTML("<p>" + item.name + "</p>")
+                    .setLngLat(coord);
+                // .addTo(ourMap);
+                var marker1 = new mapboxgl.Marker({color: "orange"})
+                    .setLngLat(coord)
+                    .addTo(map)
+                    .setPopup(popup1);
+            })
+        })
     });
+
+        // geocode("Wild Goji Restaurant & Bar", mapToken).then(function(wildGoji){
+        //     var popup1 = new mapboxgl.Popup()
+        //         .setHTML("<strong>Wild Goji Restaurant & Bar</strong><p>A modern, spacious dining room offering Asian street food plus sushi, ramen & more.</p>")
+        //         .setLngLat(wildGoji);
+        //     var marker1 = new mapboxgl.Marker()
+        //         .setLngLat(wildGoji)
+        //         .addTo(map)
+        //         .setPopup(popup1);
+        // })
+
+
+    // map.on('load', function() {
+    //     map.addLayer({
+    //         'id':'places',
+    //         'type': 'symbol',
+    //         'source': {
+    //             'type': 'geojson',
+    //             'data': {
+    //                 'type': 'FeatureCollection',
+    //                 'features': [{
+    //                     'type': 'feature',
+    //                     'properties': {
+    //                         'description': '<strong>Wild Goji Restaurant & Bar</strong><p>A modern, spacious dining room offering Asian street food plus sushi, ramen & more.</p>',
+    //                         'icon': 'restaurant'
+    //                     },
+    //                     'geometry': {
+    //                         'type': 'Point',
+    //                         'coordinates': [-98.506202, 29.521665]
+    //                     }
+    //                 }, {
+    //                     'type': 'Feature',
+    //                     'properties': {
+    //                         'description': '<strong>The Magnolia Pancake Haus</strong><p>This bustling cafe with American breakfasts & lunches draws crowds with pancakes, sandwiches & more.</p>',
+    //                         'icon': 'restaurant'
+    //                     },
+    //                     'geometry': {
+    //                         'type': 'Point',
+    //                         'coordinates': [-98.489792, 29.564808]
+    //                     }
+    //                 }, {
+    //                     'type': 'Feature',
+    //                     'properties': {
+    //                         'description': '<strong>Creamistry</strong><p>Handcrafted premium ice cream one delicious scoop at a time useing liquid nitrogen to flash freeze individual ice cream orders at -321° F. This unique freezing process results in ice cream that is ultra-creamy, decadently rich and unbelievably fresh! Made-to-order and customizable just the way you like it, one bite is all it takes to taste the Creamistry difference!</p>',
+    //                         'icon': 'restaurant'
+    //                     },
+    //                     'geometry': {
+    //                         'type': 'Point',
+    //                         'coordinates': [-98.665459, 29.441800]
+    //                     }
+    //                 }]
+    //         }
+    //         },
+    //         'layout': {
+    //             'icon-image': '{icon}-15',
+    //             'icon-allow-overlap':true
+    //         }
+    //     });
+    //     map.on('click', 'places', function(e) {
+    //         var coordinates = e.features[0].geometry.coordinates.slice();
+    //         var description = e.features[0].properties.description;
+    //
+    //         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+    //             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    //         }
+    //
+    //         new mapboxgl.Popup()
+    //             .setLngLat(coordinates)
+    //             .setHTML(description)
+    //             .addTo(map);
+    //     });
+    //     // Change the cursor to a pointer when the mouse is over the places layer.
+    //     map.on('mouseenter', 'places', function () {
+    //         map.getCanvas().style.cursor = 'pointer';
+    //     });
+    //
+    //     // Change it back to a pointer when it leaves.
+    //     map.on('mouseleave', 'places', function () {
+    //         map.getCanvas().style.cursor = '';
+    //     });
+    // });
+    //
+    // document.getElementById('zoom').addEventListener('change', function() {
+    //     if(this.value==='five'){
+    //         map.setZoom(5);
+    //     } else if (this.value==='fifteen'){
+    //         map.setZoom(15);
+    //     } else if (this.value==='twenty'){
+    //         map.setZoom(20);
+    //     } else {
+    //         map.setZoom(10.5);
+    //     }
+    // }, false);
+    //
+    // document.getElementById('address').onsubmit = function () {markAddress()};
+    // function markAddress(input){
+    //     console.log(input)
+    // }
+
 </script>
 </body>
 </html>

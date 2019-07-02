@@ -7,7 +7,7 @@
 <body>
     <div id="topDiv" class="codeup">
         <h1 id="heading" class="head">Pokem ipsum dolor sit amet Snover Professor Elm Carracosta Mystery Gift Wailmer Gloom.</h1>
-        <p id="para" class="">Sand-Attack Timburr Seismitoad Golurk Growlithe Bulbasaur I know it's my destiny. </p>
+        <p id="para" class="">Gold Relicanth our courage will pull us through Fire Oshawott Murkrow Toxicroak. Water Gun Lanturn Dwebble Tail Whip Ash's mother Darmanitan grumpy old man who needs coffee. Team Rocket Kabuto Farfetch'd Ursaring Shellos Shelgon Ariados. Silver Sealeo Tranquill Kanto Smoochum Tentacool Steel. Qui officia deserunt mollit Abomasnow what kind of Pokemon are you Joltik to extend our reach to the stars above bicycle Rock.</p>
         <ul id="list" class="codeup">
             <li id="list1" class="">Tail Whip</li>
             <li id="list2" class="">Mineral Badge</li>
@@ -21,19 +21,37 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="js/jquery-2.js"></script>
 <script>
-    // $(document).ready(function() {
-    //     alert( 'The DOM has finished loading!' );
-    // });
+    $().ready(
+        function(){
+        // $(document).ready(function() {
+        //     alert( 'The DOM has finished loading!' );
+        // });
 
-    // var contents = $('#list').html();
-    // alert(contents);
+        // var contents = $('#list').html();
+        // alert(contents);
 
-    // $('.codeup').css('border', 'solid 1px red')
+        // $('.codeup').css('border', 'solid 1px red')
 
-    $('li').css('font-size', '20px');
-    $('p, h1, li').css('background-color', '#FF0');
-    var headContents = $('h1').html();
-    alert(headContents);
+        // $('li').css('font-size', '20px');
+        // $('p, h1, li').css('background-color', '#FF0');
+        // var headContents = $('h1').html();
+        // alert(headContents);
+            $('h1').click(function(){
+                $(this).css('background-color', 'skyblue')
+            });
+            $('p').dblclick(function(){
+                $(this).css('font-size', '18px')
+            });
+            $('li').hover(function(){
+                $(this).css('color', 'red')
+            },
+                function(){
+                    $(this).css('color', 'black')
+                }
+            );
+
+
+        })
 </script>
 </body>
 </html>

@@ -33,6 +33,8 @@
 <br><br>
 <button id="btn4" type="button">Change Paragraph</button>
 
+<div id="enterKey">Hit Enter</div>
+
 <script>
     (function() {
         "use strict";
@@ -83,18 +85,41 @@
         };
         document.getElementById('btn4').addEventListener('click', changeSubP, false);
 
+
+
+
         // 1. When a user hits the "g" key, the background of the page should turn purple.
         document.addEventListener('keydown', function (event){
             if (event.code === 'KeyG'){
                 document.getElementById('purp').style.backgroundColor = 'purple';
             }
-        }, false)
+        }, false);
 
         // 2. Every time the enter key is pressed, increment and display a counter that
         // shows the total number of times the enter key has been pressed.
 
+        var enter = document.getElementById('enterKey');
+        var count = 0;
+
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'Enter'){
+                count+=1;
+                enter.innerHTML = "Enter key has been pushed "+count+" times";
+            }
+        }, false);
+
         // 3. When someone types 1, 2, 3 in a row, show an alert that says "You get a 50%
         // discount!".
+
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'Digit1') {
+                if (event.code === 'Digit2') {
+                    if (event.code === 'Digit3') {
+                        return alert("You get a 50% discount!")
+                    }
+                }
+            }
+        }, false);
 
     })();
 </script>

@@ -16,8 +16,8 @@
         }
         var sum = result.reduce(add, 0);
         if (num === sum) {
-            // narcArray.push(num);
-            console.log(num);
+            narcArray.push(num);
+            // console.log(num);
         }
     };
 
@@ -30,10 +30,9 @@
     //trying to figure out how to write the loop and use the function. needs to loop until there are 25 numbers in the array.
 
     var x = 0;
-    while (x < 10) {
+     do {
         isNarcissistic(x);
         x++;
-    }
-
+    } while (narcArray.length <= 25);
 
 })();

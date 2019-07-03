@@ -8,12 +8,24 @@
             visibility: hidden;
         }
         .highlight {
-            background-color: #f3ff4a;
+            background-color: palegoldenrod;
+            color: indianred;
+        }
+        .maroon {
+            color: maroon;
+        }
+        .button {
+            font-size: 20px;
+        }
+        body {
+            background: url("img/betelgeuse.jpg") no-repeat right top #23457a;
         }
     </style>
 </head>
 <body>
 <!--Doing Space FAQs instead of Parks because cohort names are space based now.-->
+
+<h1>Some Random Space FAQs!</h1>
 <dl>
     <dt>Space FAQs 1)</dt>
     <dd class="invisible">Uranus is tilted on its side</dd>
@@ -37,13 +49,15 @@
     <dd class="invisible">The only planet that spins backwards relative to the others is Venus</dd>
 </dl>
 <br>
-<button class="button">Click Here</button>
+<button class="button">Click Here to see facts</button>
+<br>
+<div><img src="img/betelgeuse-size.jpg" alt=""></div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $('.button').click(function(event) {
         event.preventDefault();
-        $('dd').toggleClass('invisible');
+        $('dd').toggleClass('invisible').toggleClass('maroon');
     });
     $('dt').click(function(event) {
         event.preventDefault();

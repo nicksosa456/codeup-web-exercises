@@ -78,6 +78,11 @@
                     $('#container').css('background-image', "url(img/contra.jpg)").css('background-repeat', 'no-repeat').css('background-position', 'center');
                     $('#head').text('You added 30 lives!');
                     var kAudio = new Audio('audio/contra_title.mp3');
+                    var bAudio = new Audio('audio/baseball.mp3');
+                    $('#container').dblclick(function() {
+                        $('#container').css('background-image', "url(img/baseball.jpg)").css('background-repeat', 'no-repeat').css('background-position', 'center');
+                        bAudio.play();
+                    });
                     kAudio.play();
                     count = 0;
                     arr = [];

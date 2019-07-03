@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-FAQ</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+        .highlight {
+            background-color: #f3ff4a;
+        }
+    </style>
+</head>
+<body>
+<!--Doing Space FAQs instead of Parks because cohort names are space based now.-->
+<dl>
+    <dt>Space FAQs 1)</dt>
+    <dd class="invisible">Uranus is tilted on its side</dd>
+    <dt>Space FAQs 2)</dt>
+    <dd class="invisible">Except for the Earth, the planets are named after gods from Roman and Greek mythology</dd>
+    <dt>Space FAQs 3)</dt>
+    <dd class="invisible">There are an estimated 100-400 billion stars in our galaxy, the Milky Way</dd>
+    <dt>Space FAQs 4)</dt>
+    <dd class="invisible">Venus has super-powerful winds</dd>
+    <dt>Space FAQs 5)</dt>
+    <dd class="invisible">Rings are everywhere in the solar system</dd>
+    <dt>Space FAQs 6)</dt>
+    <dd class="invisible">Neptune radiates more heat than it gets from the sun</dd>
+    <dt>Space FAQs 7)</dt>
+    <dd class="invisible">The solar atmosphere is much hotter than the surface</dd>
+    <dt>Space FAQs 8)</dt>
+    <dd class="invisible">Venus is the hottest planet in our solar system with a surface temperature of over 450 degrees celcius</dd>
+    <dt>Space FAQs 9)</dt>
+    <dd class="invisible">The only planet that rotates on its side like a barrel is Uranus</dd>
+    <dt>Space FAQs 10)</dt>
+    <dd class="invisible">The only planet that spins backwards relative to the others is Venus</dd>
+</dl>
+<br>
+<button class="button">Click Here</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    $('.button').click(function(event) {
+        event.preventDefault();
+        $('dd').toggleClass('invisible');
+    });
+    $('dt').click(function(event) {
+        event.preventDefault();
+        $(this).toggleClass('highlight');
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+.invisible {
+    visibility: hidden;
+}
+.highlight {
+    background-color: palegoldenrod;
+    color: indianred;
+}
+.maroon {
+    color: maroon;
+}
+.button {
+    font-size: 20px;
+}
+body {
+    background: url("../img/betelgeuse.jpg") no-repeat right top #375b94;
+}
+.planets {
+    float: left;
+    margin-left: 50px;
+}
+.planets img {
+    height: 400px;
+    width: 400px;
+}

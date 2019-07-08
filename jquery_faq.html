@@ -3,24 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery-FAQ</title>
-    <style>
-        .invisible {
-            visibility: hidden;
-        }
-        .highlight {
-            background-color: palegoldenrod;
-            color: indianred;
-        }
-        .maroon {
-            color: maroon;
-        }
-        .button {
-            font-size: 20px;
-        }
-        body {
-            background: url("img/betelgeuse.jpg") no-repeat right top #375b94;
-        }
-    </style>
+    <link rel="stylesheet" href="css/jquery_faq_css.css">
 </head>
 <body>
 <!--Doing Space FAQs instead of Parks because cohort names are space based now.-->
@@ -48,22 +31,54 @@
     <dt>Space FAQs 10)</dt>
     <dd class="invisible">The only planet that spins backwards relative to the others is Venus</dd>
 </dl>
+<button id="firstButton" class="button">Click Here to see facts</button>
+<h3>Venus Facts</h3>
+<ul>
+    <li>One day on Venus is longer than one Earth year</li>
+    <li>The temperature on Venus doesn't vary much between night and day</li>
+    <li>Venus has a weak magnetic field</li>
+    <li>Venus is the second brightest natural object in the sky</li>
+</ul>
+<h3>Saturn Facts</h3>
+<ul>
+    <li>Saturn gives off more energy than it receives from the Sun</li>
+    <li>Saturn is the least dense planet in the solar system</li>
+    <li>Saturn has 150 moons and smaller moonlets</li>
+    <li>Saturn is known as a gas giant, but scientists believe it has a solid rocky core</li>
+</ul>
+<h3>Neptune Facts</h3>
+<ul>
+    <li>Neptune has a storm similar the Great Red Spot on Jupiter</li>
+    <li>Neptune has 14 known moons</li>
+    <li>Neptune is the Roman God of the Sea</li>
+    <li>It takes Neptune 164.8 Earth years to orbit the Sun</li>
+</ul>
+<button id="secondFacts" class="button">Click to highlight</button>
 <br>
-<button class="button">Click Here to see facts</button>
 <br>
+
+<div class="planets">
+    <div>
+        <img src="img/Venus.jpg" alt="">
+    </div>
+    <button id="leftBtn" class="button">Swap -></button>
+</div>
+<div class="planets">
+    <div>
+        <img src="img/Saturn.jpg" alt="">
+    </div>
+    <button id="centerBtn" class="button"><- Swap -></button>
+</div>
+<div class="planets">
+    <div>
+        <img src="img/neptune.jpg" alt="">
+    </div>
+    <button id="rightBtn" class="button"><- Swap</button>
+</div>
 <div><img src="img/betelgeuse-size.jpg" alt=""></div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script>
-    $('.button').click(function(event) {
-        event.preventDefault();
-        $('dd').toggleClass('invisible').toggleClass('maroon');
-    });
-    $('dt').click(function(event) {
-        event.preventDefault();
-        $(this).toggleClass('highlight');
-    })
-</script>
+<script src="js/jquery_faq_js.js"></script>
 
 </body>
 </html>

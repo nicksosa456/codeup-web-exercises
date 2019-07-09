@@ -8,6 +8,10 @@
 <body>
 <!--Doing Space FAQs instead of Parks because cohort names are space based now.-->
 
+<h1>Would you like to sign up for our newsletter? <span id="hideX">X</span></h1>
+
+<h2 id="registerFade">Register for our site!</h2>
+
 <h1>Some Random Space FAQs!</h1>
 <dl>
     <dt>Space FAQs 1)</dt>
@@ -33,21 +37,21 @@
 </dl>
 <button id="firstButton" class="button">Click Here to see facts</button>
 <h3>Venus Facts</h3>
-<ul>
+<ul class="planetFacts">
     <li>One day on Venus is longer than one Earth year</li>
     <li>The temperature on Venus doesn't vary much between night and day</li>
     <li>Venus has a weak magnetic field</li>
     <li>Venus is the second brightest natural object in the sky</li>
 </ul>
 <h3>Saturn Facts</h3>
-<ul>
+<ul class="planetFacts">
     <li>Saturn gives off more energy than it receives from the Sun</li>
     <li>Saturn is the least dense planet in the solar system</li>
     <li>Saturn has 150 moons and smaller moonlets</li>
     <li>Saturn is known as a gas giant, but scientists believe it has a solid rocky core</li>
 </ul>
 <h3>Neptune Facts</h3>
-<ul>
+<ul class="planetFacts">
     <li>Neptune has a storm similar the Great Red Spot on Jupiter</li>
     <li>Neptune has 14 known moons</li>
     <li>Neptune is the Roman God of the Sea</li>
@@ -57,24 +61,17 @@
 <br>
 <br>
 
+<!--Bonus part for swapping-->
+
 <div class="planets">
-    <div>
-        <img src="img/Venus.jpg" alt="">
-    </div>
-    <button id="leftBtn" class="button">Swap -></button>
+    <div class="column"><img id="img1" src="img/Venus.jpg" alt=""></div>
+    <div class="column"><img id="img2" src="img/Saturn.jpg" alt=""></div>
+    <div class="column"><img id="img3" src="img/neptune.jpg" alt=""></div>
+    <button class="swap leftBtn">Swap -></button>
+    <button class="swap centerBtn"><- Swap -></button>
+    <button class="swap rightBtn"><- Swap</button>
 </div>
-<div class="planets">
-    <div>
-        <img src="img/Saturn.jpg" alt="">
-    </div>
-    <button id="centerBtn" class="button"><- Swap -></button>
-</div>
-<div class="planets">
-    <div>
-        <img src="img/neptune.jpg" alt="">
-    </div>
-    <button id="rightBtn" class="button"><- Swap</button>
-</div>
+
 <div><img src="img/betelgeuse-size.jpg" alt=""></div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

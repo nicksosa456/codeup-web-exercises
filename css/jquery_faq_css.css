@@ -1,24 +1,49 @@
 .invisible {
     visibility: hidden;
 }
+
 .highlight {
     background-color: palegoldenrod;
     color: indianred;
 }
+
 .maroon {
     color: maroon;
 }
+
 .button {
     font-size: 20px;
 }
+
 body {
     background: url("../img/betelgeuse.jpg") no-repeat right top #375b94;
 }
-.planets {
-    float: left;
-    margin-left: 50px;
+
+.column {
+    width: 33%;
+    /*margin: auto;*/
+    display: inline-block;
 }
+
+.swap {
+    margin: auto 15em;
+    display: inline-block;
+}
+
 .planets img {
     height: 400px;
     width: 400px;
+}
+
+#hideX {
+    text-decoration: underline;
+    color: blue;
+}
+
+.planetFacts {
+    display: none;
+}
+
+#registerFade {
+    display: none;
 }

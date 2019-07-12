@@ -1,10 +1,15 @@
 
 mapboxgl.accessToken = mapToken;
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    zoom: 10,
-    center: [-98.4916, 29.4252]
+
+geocode('San Antonio, TX', mapToken).then(function(SATX) {
+    var sanAntonio = SATX;
+    var mapOptions = {
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v10',
+        zoom: 10,
+        center: sanAntonio
+    };
+    var map = new mapboxgl.Map(mapOptions);
 });
 
 var icons = [
@@ -87,6 +92,7 @@ var cycleDays = function(d, index){
             });
         };
         weatherType();
+        day.html('');
         day.append("<h4>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
             +Math.round(w.daily.data[i].temperatureLow)+"º</h4>"
             +"\n <img src='"+icon+"' alt=''> \n"+"<p><span>"+forecast+":</span> "+summary
@@ -101,9 +107,22 @@ $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+da
     console.log(data);
     for (var x = 0; x <=2; x++) {
         cycleDays(data, x);
-    }
-
-    }).fail(function(jqXhr, status, error) {
+    }}).fail(function(jqXhr, status, error) {
         console.log("Response status: " + status);
         console.log("Error object: " + error);
     });
+
+
+
+$('#latLongSubmit').click(function(){
+    var userLat = $('#latitude').val();
+    var userLong = $('#longitude').val();
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+userLat+","+userLong).done(function(data) {
+        console.log(data);
+        for (var x = 0; x <=2; x++) {
+            cycleDays(data, x);
+        }}).fail(function(jqXhr, status, error) {
+        console.log("Response status: " + status);
+        console.log("Error object: " + error);
+    });
+});

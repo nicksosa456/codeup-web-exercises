@@ -1,65 +1,72 @@
 
+mapboxgl.accessToken = mapToken;
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 10,
+    center: [-98.4916, 29.4252]
+});
 
 var icons = [
     {
         icon: "clear-day",
         name: "Sunny",
         summary: "Clear, sunny day",
-        url: "../icons/climacons/SVG/Sun.svg"
+        url: "icons/climacons/SVG/Sun.svg"
     },
     {
         icon: "clear-night",
         name: "Clear",
         summary: "Clear night sky",
-        url: "../icons/climacons/SVG/Moon.svg"
+        url: "icons/climacons/SVG/Moon.svg"
     },
     {
         icon: "rain",
         name: "Rain",
         summary: "Rainy day",
-        url: "../icons/climacons/SVG/Cloud-Rain.svg"
+        url: "icons/climacons/SVG/Cloud-Rain.svg"
     },
     {
         icon: "snow",
         name: "Snow",
         summary: "Snowfall today",
-        url: "../icons/climacons/SVG/Cloud-Snow.svg"
+        url: "icons/climacons/SVG/Cloud-Snow.svg"
     },
     {
         icon: "sleet",
         name: "Sleet",
         summary: "Sleet today",
-        url: "../icons/climacons/SVG/Cloud-Snow-Alt.svg"
+        url: "icons/climacons/SVG/Cloud-Snow-Alt.svg"
     },
     {
         icon: "wind",
         name: "Windy",
         summary: "High winds",
-        url: "../icons/climacons/SVG/Wind.svg"
+        url: "icons/climacons/SVG/Wind.svg"
     },
     {
         icon: "fog",
         name: "Foggy",
         summary: "Foggy day",
-        url: "../icons/climacons/SVG/Cloud-Fog.svg"
+        url: "icons/climacons/SVG/Cloud-Fog.svg"
     },
     {
         icon: "cloudy",
         name: "Cloudy",
         summary: "Cloudy day",
-        url: "../icons/climacons/SVG/Cloud.svg"
+        url: "icons/climacons/SVG/Cloud.svg"
     },
     {
         icon: "partly-cloudy-day",
         name: "Cloudy",
         summary: "Partly cloudy",
-        url: "../icons/climacons/SVG/Cloud-Sun.svg"
+        url: "icons/climacons/SVG/Cloud-Sun.svg"
     },
     {
         icon: "partly-cloudy-night",
         name: "Cloudy",
         summary: "Partly Cloudy",
-        url: "../icons/climacons/SVG/Cloud-Moon.svg"
+        url: "icons/climacons/SVG/Cloud-Moon.svg"
     }
 ];
 
@@ -83,7 +90,7 @@ var cycleDays = function(d, index){
         day.append("<h4>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
             +Math.round(w.daily.data[i].temperatureLow)+"º</h4>"
             +"\n <img src='"+icon+"' alt=''> \n"+"<p><span>"+forecast+":</span> "+summary
-            +"</p>\n<p><span>Humidity:</span> "+w.daily.data[i].humidity*100
+            +"</p>\n<p><span>Humidity:</span> "+ Math.round(w.daily.data[i].humidity*100)
             +"</p>\n<p><span>Wind:</span> "+w.daily.data[i].windSpeed
             +"</p>\n<p><span>Pressure:</span> "+w.daily.data[i].pressure+"</p>");
     };

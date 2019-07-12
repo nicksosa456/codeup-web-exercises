@@ -2,14 +2,42 @@
 mapboxgl.accessToken = mapToken;
 
 geocode('San Antonio, TX', mapToken).then(function(SATX) {
-    var sanAntonio = SATX;
     var mapOptions = {
         container: 'map',
-        style: 'mapbox://styles/mapbox/outdoors-v10',
+        style: 'mapbox://styles/mapbox/streets-v11',
         zoom: 10,
-        center: sanAntonio
+        center: SATX
     };
+
     var map = new mapboxgl.Map(mapOptions);
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat(SATX)
+        .setDraggable(true)
+        .addTo(map);
+
+    function onDragEnd() {
+        var lnglat = marker.getLngLat();
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+lnglat.lat+","+lnglat.lng).done(function(data) {
+            for (var x = 0; x <=2; x++) {
+                cycleDays(data, x);
+            }}).fail(function(jqXhr, status, error) {
+            console.log("Response status: " + status);
+            console.log("Error object: " + error);
+        });
+    }
+    marker.on('dragend', onDragEnd);
+
+    var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+        accessToken: mapboxgl.accessToken, // Set the access token
+        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    });
+
+    // Add the geocoder to the map
+    map.addControl(geocoder);
+
+    map.addControl(new mapboxgl.NavigationControl());
+
 });
 
 var icons = [
@@ -112,13 +140,10 @@ $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+da
         console.log("Error object: " + error);
     });
 
-
-
 $('#latLongSubmit').click(function(){
     var userLat = $('#latitude').val();
     var userLong = $('#longitude').val();
     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+userLat+","+userLong).done(function(data) {
-        console.log(data);
         for (var x = 0; x <=2; x++) {
             cycleDays(data, x);
         }}).fail(function(jqXhr, status, error) {

@@ -1,13 +1,29 @@
 
 mapboxgl.accessToken = mapToken;
+var lat;
+var long;
 
 geocode('San Antonio, TX', mapToken).then(function(SATX) {
+    lat = SATX[1];
+    long = SATX[0];
     var mapOptions = {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         zoom: 10,
         center: SATX
     };
+
+    var weather = function(lat, long){
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+lat+","+long).done(function(data) {
+            for (var x = 0; x <=2; x++) {
+                cycleDays(data, x);
+            }}).fail(function(jqXhr, status, error) {
+            console.log("Response status: " + status);
+            console.log("Error object: " + error);
+        });
+    };
+
+    weather(lat, long);
 
     var map = new mapboxgl.Map(mapOptions);
 
@@ -18,26 +34,25 @@ geocode('San Antonio, TX', mapToken).then(function(SATX) {
 
     function onDragEnd() {
         var lnglat = marker.getLngLat();
-        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+lnglat.lat+","+lnglat.lng).done(function(data) {
-            for (var x = 0; x <=2; x++) {
-                cycleDays(data, x);
-            }}).fail(function(jqXhr, status, error) {
-            console.log("Response status: " + status);
-            console.log("Error object: " + error);
-        });
+        lat = lnglat.lat;
+        long = lnglat.lng;
+        weather(lat, long);
     }
     marker.on('dragend', onDragEnd);
 
     var geocoder = new MapboxGeocoder({ // Initialize the geocoder
         accessToken: mapboxgl.accessToken, // Set the access token
-        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+        mapboxgl: mapboxgl // Set the mapbox-gl instance
     });
 
     // Add the geocoder to the map
     map.addControl(geocoder);
-
+    geocoder.on('result', function(e) {
+        lat = e.result.geometry.coordinates[1];
+        long = e.result.geometry.coordinates[0];
+        weather(lat, long);
+    });
     map.addControl(new mapboxgl.NavigationControl());
-
 });
 
 var icons = [
@@ -103,17 +118,16 @@ var icons = [
     }
 ];
 
-
 var cycleDays = function(d, index){
     var day = $(".day"+index);
-    var forecast;
+    var name;
     var icon;
     var summary;
     var buildHTML = function (w, i) {
         var weatherType = function(){
             icons.forEach(function (ele) {
                 if (w.daily.data[i].icon === ele.icon){
-                    forecast = ele.name;
+                    name = ele.name;
                     summary = ele.summary;
                     icon = ele.url;
                 }
@@ -123,31 +137,10 @@ var cycleDays = function(d, index){
         day.html('');
         day.append("<h4>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
             +Math.round(w.daily.data[i].temperatureLow)+"º</h4>"
-            +"\n <img src='"+icon+"' alt=''> \n"+"<p><span>"+forecast+":</span> "+summary
+            +"\n <img src='"+icon+"' alt=''> \n"+"<p><span>"+name+":</span> "+summary
             +"</p>\n<p><span>Humidity:</span> "+ Math.round(w.daily.data[i].humidity*100)
             +"</p>\n<p><span>Wind:</span> "+w.daily.data[i].windSpeed
             +"</p>\n<p><span>Pressure:</span> "+w.daily.data[i].pressure+"</p>");
     };
     buildHTML(d, index);
 };
-
-$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/29.4241,-98.4936").done(function(data) {
-    console.log(data);
-    for (var x = 0; x <=2; x++) {
-        cycleDays(data, x);
-    }}).fail(function(jqXhr, status, error) {
-        console.log("Response status: " + status);
-        console.log("Error object: " + error);
-    });
-
-$('#latLongSubmit').click(function(){
-    var userLat = $('#latitude').val();
-    var userLong = $('#longitude').val();
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+userLat+","+userLong).done(function(data) {
-        for (var x = 0; x <=2; x++) {
-            cycleDays(data, x);
-        }}).fail(function(jqXhr, status, error) {
-        console.log("Response status: " + status);
-        console.log("Error object: " + error);
-    });
-});

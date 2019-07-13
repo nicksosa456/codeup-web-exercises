@@ -137,10 +137,10 @@ var cycleDays = function(d, index){
         day.html('');
         day.append("<p class='is-size-1'>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
             +Math.round(w.daily.data[i].temperatureLow)+"º</p>"
-            +"\n <img src='"+icon+"' alt=''> \n"+"<p><span>"+name+":</span> "+summary
-            +"</p>\n<p><span>Humidity:</span> "+ Math.round(w.daily.data[i].humidity*100)
-            +"</p>\n<p><span>Wind:</span> "+w.daily.data[i].windSpeed
-            +"</p>\n<p><span>Pressure:</span> "+w.daily.data[i].pressure+"</p>");
+            +"\n <img class='weather-icon' src='"+icon+"' alt=''> \n"+"<p><span class='large-font'>"+name+":</span> "+summary
+            +"</p>\n<p><span class='large-font'>Humidity:</span> "+ Math.round(w.daily.data[i].humidity*100)
+            +"</p>\n<p><span class='large-font'>Wind:</span> "+w.daily.data[i].windSpeed
+            +"</p>\n<p><span class='large-font'>Pressure:</span> "+w.daily.data[i].pressure+"</p>");
     };
     buildHTML(d, index);
 };

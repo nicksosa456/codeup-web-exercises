@@ -23,7 +23,7 @@ geocode('San Antonio, TX', mapToken).then(function(SATX) {
         });
     };
 
-    weather(lat, long);
+    // weather(lat, long);
 
     var map = new mapboxgl.Map(mapOptions);
 
@@ -60,61 +60,61 @@ var icons = [
         icon: "clear-day",
         name: "Sunny",
         summary: "Clear, sunny day",
-        url: "icons/climacons/SVG/Sun.svg"
+        url: "icons/weather-color/SVG/500/sun.svg"
     },
     {
         icon: "clear-night",
         name: "Clear",
         summary: "Clear night sky",
-        url: "icons/climacons/SVG/Moon.svg"
+        url: "icons/weather-color/SVG/500/moon.svg"
     },
     {
         icon: "rain",
         name: "Rain",
         summary: "Rainy day",
-        url: "icons/climacons/SVG/Cloud-Rain.svg"
+        url: "icons/weather-color/SVG/500/rain.svg"
     },
     {
         icon: "snow",
         name: "Snow",
         summary: "Snowfall today",
-        url: "icons/climacons/SVG/Cloud-Snow.svg"
+        url: "icons/weather-color/SVG/500/snow.svg"
     },
     {
         icon: "sleet",
         name: "Sleet",
         summary: "Sleet today",
-        url: "icons/climacons/SVG/Cloud-Snow-Alt.svg"
+        url: "icons/weather-color/SVG/500/hail.svg"
     },
     {
         icon: "wind",
         name: "Windy",
         summary: "High winds",
-        url: "icons/climacons/SVG/Wind.svg"
+        url: "icons/weather-color/SVG/500/windy.svg"
     },
     {
         icon: "fog",
         name: "Foggy",
         summary: "Foggy day",
-        url: "icons/climacons/SVG/Cloud-Fog.svg"
+        url: "icons/weather-color/SVG/500/fog.svg"
     },
     {
         icon: "cloudy",
         name: "Cloudy",
         summary: "Cloudy day",
-        url: "icons/climacons/SVG/Cloud.svg"
+        url: "icons/weather-color/SVG/500/cloudy.svg"
     },
     {
         icon: "partly-cloudy-day",
         name: "Cloudy",
         summary: "Partly cloudy",
-        url: "icons/climacons/SVG/Cloud-Sun.svg"
+        url: "icons/weather-color/SVG/500/cloudy-day.svg"
     },
     {
         icon: "partly-cloudy-night",
         name: "Cloudy",
         summary: "Partly Cloudy",
-        url: "icons/climacons/SVG/Cloud-Moon.svg"
+        url: "icons/weather-color/SVG/500/cloudy-night.svg"
     }
 ];
 
@@ -135,8 +135,8 @@ var cycleDays = function(d, index){
         };
         weatherType();
         day.html('');
-        day.append("<h4>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
-            +Math.round(w.daily.data[i].temperatureLow)+"º</h4>"
+        day.append("<p class='is-size-1'>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
+            +Math.round(w.daily.data[i].temperatureLow)+"º</p>"
             +"\n <img src='"+icon+"' alt=''> \n"+"<p><span>"+name+":</span> "+summary
             +"</p>\n<p><span>Humidity:</span> "+ Math.round(w.daily.data[i].humidity*100)
             +"</p>\n<p><span>Wind:</span> "+w.daily.data[i].windSpeed

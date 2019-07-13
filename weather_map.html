@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>Weather</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet'/>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css'/>
     <style>
         span {
             font-size: 2em;
         }
-        .col {
+        .column {
             border: 2px solid black;
+            text-align: center;
         }
         #map {
             width: 100%;
@@ -24,22 +25,13 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col s12 red center-align"><h2>Weather</h2></div>
-        <div class="col s12 l4 purple lighten-2 center-align day day0"><img src="img/rotating-balls-spinner.gif" alt=""></div>
-        <div class="col s12 l4 purple lighten-2 center-align day day1"><img src="img/rotating-balls-spinner.gif" alt=""></div>
-        <div class="col s12 l4 purple lighten-2 center-align day day2"><img src="img/rotating-balls-spinner.gif" alt=""></div>
-    </div>
-
-<!--    <label for="latitude">Latitude</label>-->
-<!--    <input id="latitude" name="latitude" type="text" placeholder="Enter a valid digit Latitude">-->
-
-<!--    <label for="longitude">Longitude</label>-->
-<!--    <input id="longitude" name="longitude" type="text" placeholder="Enter a valid digit Longitude">-->
-
-<!--    <button class="btn waves-effect waves-light" id="latLongSubmit" type="submit" name="action">Submit</button>-->
-
+<div class="columns">
+        <div class="column is-size-1 is-full">Weather</div>
+</div>
+<div class="columns">
+        <div class="column day day0"><img src="img/rotating-balls-spinner.gif" alt=""></div>
+        <div class="column day day1"><img src="img/rotating-balls-spinner.gif" alt=""></div>
+        <div class="column day day2"><img src="img/rotating-balls-spinner.gif" alt=""></div>
 
 </div>
 <div id='map'></div>
@@ -47,7 +39,6 @@
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>

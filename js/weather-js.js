@@ -15,6 +15,7 @@ geocode('San Antonio, TX', mapToken).then(function(SATX) {
 
     var weather = function(lat, long){
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+darkSkyToken+"/"+lat+","+long).done(function(data) {
+            console.log(data);
             for (var x = 0; x <=2; x++) {
                 cycleDays(data, x);
             }}).fail(function(jqXhr, status, error) {
@@ -23,7 +24,7 @@ geocode('San Antonio, TX', mapToken).then(function(SATX) {
         });
     };
 
-    // weather(lat, long);
+    weather(lat, long);
 
     var map = new mapboxgl.Map(mapOptions);
 
@@ -118,12 +119,15 @@ var icons = [
     }
 ];
 
-var cycleDays = function(d, index){
+var cycleDays = function(data, index){
     var day = $(".day"+index);
     var name;
     var icon;
     var summary;
+    var temp = "F";
     var buildHTML = function (w, i) {
+        var tempHigh = w.daily.data[i].temperatureHigh;
+        var tempLow = w.daily.data[i].temperatureLow;
         var weatherType = function(){
             icons.forEach(function (ele) {
                 if (w.daily.data[i].icon === ele.icon){
@@ -134,13 +138,30 @@ var cycleDays = function(d, index){
             });
         };
         weatherType();
+        $('.imgDegree').click(function () {
+            if (temp === 'F') {
+                temp = 'C';
+                $(this).removeClass('fahrenheit');
+                $(this).addClass('celsius');
+                tempHigh = ((tempHigh - 32) * (5/9) );
+                tempLow= ((tempLow - 32) * (5/9) );
+            } else if (temp === 'C') {
+                temp = 'F';
+                $(this).removeClass('celsius');
+                $(this).addClass('fahrenheit');
+                tempHigh = ((tempHigh * (9/5) ) + 32);
+                tempLow = ((tempLow * (9/5) ) + 32);
+            }
+            $('.temp').html("<p class='temp is-size-1'>"+Math.round(tempHigh)+"º/"
+                +Math.round(tempLow)+"º</p>")
+        });
         day.html('');
-        day.append("<p class='is-size-1'>"+Math.round(w.daily.data[i].temperatureHigh)+"º/"
-            +Math.round(w.daily.data[i].temperatureLow)+"º</p>"
+        day.append("<p class='temp is-size-1'>"+Math.round(tempHigh)+"º/"
+            +Math.round(tempLow)+"º</p>"
             +"\n <img class='weather-icon' src='"+icon+"' alt=''> \n"+"<p><span class='large-font'>"+name+":</span> "+summary
             +"</p>\n<p><span class='large-font'>Humidity:</span> "+ Math.round(w.daily.data[i].humidity*100)
             +"</p>\n<p><span class='large-font'>Wind:</span> "+w.daily.data[i].windSpeed
             +"</p>\n<p><span class='large-font'>Pressure:</span> "+w.daily.data[i].pressure+"</p>");
     };
-    buildHTML(d, index);
+    buildHTML(data, index);
 };

@@ -30,3 +30,13 @@ body {
     height: auto;
     width: 125px;
 }
+.fahrenheit {
+    height: auto;
+    width: 100px;
+    content:url("../img/fahrenheit.svg");
+}
+.celsius {
+    height: auto;
+    width: 100px;
+    content:url("../img/celsius.svg");
+}

@@ -8,7 +8,7 @@ geocode('San Antonio, TX', mapToken).then(function(SATX) {
     long = SATX[0];
     var mapOptions = {
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/nicksosa456/cjy4jqvee3on21cpbz0jzctnc',
         zoom: 10,
         center: SATX
     };

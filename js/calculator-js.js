@@ -1,6 +1,5 @@
 'use strict';
 
-
 const symbolFunc = $('.symbol').click(function(){
     let num = $(this).html();
     $('#middle').val(function(){
@@ -9,7 +8,7 @@ const symbolFunc = $('.symbol').click(function(){
 });
 
 const numberFunc = $('.numbers').click(function(){
-    if ($('.symbol').html()===true) {
+    if ($('#middle').val() === '+' || $('#middle').val() === '-' || $('#middle').val() === '/' || $('#middle').val() === '*') {
         let num = $(this).html();
         $('#rightSide').val(function(i, val){
             return val + num;
@@ -22,7 +21,7 @@ const numberFunc = $('.numbers').click(function(){
     }
 });
 
-
 const clearFunc = $('.clear').click(function (){
     $('.text-area').val('');
 });
+

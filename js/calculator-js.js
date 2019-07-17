@@ -25,3 +25,31 @@ const clearFunc = $('.clear').click(function (){
     $('.text-area').val('');
 });
 
+const equalsFunc = $('.equals').click(function(){
+     if (isNaN(parseInt($('#rightSide').val()))===false) {
+         let left = parseInt($('#leftSide').val());
+         let middle = $('#middle').val();
+         let right = parseInt($('#rightSide').val());
+         let num = $('#leftSide').html();
+         // $('.text-area').val('');
+         switch (middle) {
+             case "+":
+                 $('.text-area').val('');
+                 num = left + right;
+                 console.log(num);
+                 break;
+             case "-":
+                 $('.text-area').val('');
+                 num = left - right;
+                 break;
+             case '*':
+                 $('.text-area').val('');
+                 num = left * right;
+                 break;
+             case '/':
+                 $('.text-area').val('');
+                 num = left / right;
+                 break;
+         }
+     }
+});

@@ -158,3 +158,57 @@ const [a,b,c] = instructors;
 console.log(a);
 console.log(b);
 console.log(c);
+
+
+const books = [
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        genres: ["southern","gothic","coming of age"],
+        yearsInPublication: 59
+    },
+    {
+        title: "No Longer Human",
+        author: "Osamu Dazai",
+        genres: ["autobiography","short novel"],
+        yearsInPublication: 71
+    },
+    {
+        title: "1984",
+        author: "George Orwell",
+        genres: ["dystopian","sci-fi","political fiction"],
+        yearsInPublication: 70
+    },
+    {
+        title: "Noruwei no Mori",
+        author: "Haruki Murakami",
+        genres: ["coming of age", "novel"],
+        yearsInPublication: 32
+    }
+];
+
+/*
+    MAP
+    using .map, create an array that returns all author names.
+ */
+
+const authors = books.map(n => n.author);
+console.log(authors);
+
+/*
+    FILTER
+    using .filter, create an array that returns all books with at least 3 genres
+ */
+
+const genres = books.filter(n => n.genres.length >= 3);
+console.log(genres);
+
+/*
+    REDUCE
+    using .reduce, return the total years between all books.
+ */
+
+const totalYears = books.reduce((total, years) => {
+    return total + years.yearsInPublication;
+}, 0);
+console.log(totalYears);

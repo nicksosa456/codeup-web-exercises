@@ -42,11 +42,11 @@ console.log(langs);
 const emails = users.map(n => n.email);
 console.log(emails);
 
-const totalYears = users.reduce((total, years) => {
-    return total + years.yearsOfExperience;
-}, 0);
+const totalYears = users.reduce((total, years) => total + years.yearsOfExperience, 0);
 console.log(totalYears);
-console.log(totalYears/users.length);
+
+const average = totalYears/users.length;
+console.log(average);
 
 const longEmail = users.reduce((previous, current) => {
     const currentEmail = current.email;
@@ -58,13 +58,20 @@ const longEmail = users.reduce((previous, current) => {
 }, '');
 console.log(longEmail);
 
-const instructors = users.reduce((instruct, name) => {
-    return instruct + `${name.name}, `;
+const instructors = users.reduce((instruct, name, index, arr) => {
+    if (index === arr.length-1){
+        return `${instruct}${name.name}.`;
+    }else {
+        return `${instruct}${name.name}, `;
+    }
 }, 'Codeup instructors are: ');
 console.log(instructors);
 
-const unique = users.reduce((previous, current) => {
-    for (let i of current) {
-
+const unique = users.reduce(function(prev, current){
+    const languages = current.languages;
+    for (const lang of languages){
+        prev.add(lang);
     }
-}, '');
+    return prev;
+}, new Set);
+console.log(unique);

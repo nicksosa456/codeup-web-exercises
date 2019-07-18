@@ -1,5 +1,11 @@
 'use strict';
 
+const isFloat = num => {
+    if (+num === +num && +num !== (+num|0)){
+        return true
+    }
+};
+
 const symbolFunc = $('.symbol').click(function(){
     let num = $(this).html();
     $('#middle').val(function(){
@@ -26,35 +32,51 @@ const clearFunc = $('.clear').click(function (){
 });
 
 const equalsFunc = $('.equals').click(function(){
-     if (isNaN(parseInt($('#rightSide').val()))===false) {
-         let left = parseInt($('#leftSide').val());
+     if (isNaN(Number($('#rightSide').val()))===false) {
+         let left = Number($('#leftSide').val());
          let middle = $('#middle').val();
-         let right = parseInt($('#rightSide').val());
+         let right = Number($('#rightSide').val());
          let num = $('#leftSide').html();
          $('.text-area').val('');
          switch (middle) {
              case "+":
                  num = left + right;
                  $('#leftSide').val(function(){
-                     return num.toFixed(2);
+                     if (isFloat(num) === true) {
+                         return num.toFixed(2);
+                     } else {
+                         return num
+                     }
                  });
                  break;
              case "-":
                  num = left - right;
                  $('#leftSide').val(function(){
-                     return num.toFixed(2);
+                     if (isFloat(num) === true) {
+                         return num.toFixed(2);
+                     } else {
+                         return num
+                     }
                  });
                  break;
              case '*':
                  num = left * right;
                  $('#leftSide').val(function(){
-                     return num.toFixed(2);
+                     if (isFloat(num) === true) {
+                         return num.toFixed(2);
+                     } else {
+                         return num
+                     }
                  });
                  break;
              case '/':
                  num = left / right;
                  $('#leftSide').val(function(){
-                     return num.toFixed(2);
+                     if (isFloat(num) === true) {
+                         return num.toFixed(2);
+                     } else {
+                         return num
+                     }
                  });
                  break;
          }

@@ -1,14 +1,8 @@
 "use strict";
 
 const wait = number => {
-    return new Promise((resolve, result) => {
-        setTimeout(() => {
-            if (number) {
-                resolve()
-            } else {
-                result('Error');
-            }
-        }, number)
+    return new Promise((resolve,) => {
+        setTimeout(resolve, number);
     })
 };
 
@@ -21,15 +15,26 @@ function getUserNames() {
         .then(users => users.map(user => user.login))
 }
 
-// fetch('https://api.github.com/users', {headers: {'Authorization': 'token '+githubToken}})
-//     .then(response => response.json());
-//     // .then(users => console.log(users));
-
 getUserNames().then((usernames) => {
     usernames.forEach((username)=>{
         return fetch('https://api.github.com/users/'+username+'/events', {'headers': {'Authorization': 'token '+githubToken}})
             .then(response => response.json())
-            .then(user => user)
-            .then(data => console.log(data[0].created_at));
+            // .then(data => console.log(data[0].created_at));
     })
 });
+
+const getCommit = username => {
+    return fetch('https://api.github.com/users/'+username+'/events', {'headers': {'Authorization': githubToken}})
+        .then(response => response.json())
+        .then(user => {
+            for (let i = 0; i <= user.length; i++){
+                if (user[i].type === 'PushEvent') {
+                    console.log(user[i].created_at);
+                    break;
+                }
+            }
+        })
+        // .then(log => console.log(log))
+};
+
+getCommit('nicksosa456');

@@ -31,30 +31,27 @@ const equalsFunc = $('.equals').click(function(){
          let middle = $('#middle').val();
          let right = parseInt($('#rightSide').val());
          let num = $('#leftSide').html();
+         $('.text-area').val('');
          switch (middle) {
              case "+":
-                 $('.text-area').val('');
                  num = left + right;
                  $('#leftSide').val(function(){
                      return num.toFixed(2);
                  });
                  break;
              case "-":
-                 $('.text-area').val('');
                  num = left - right;
                  $('#leftSide').val(function(){
                      return num.toFixed(2);
                  });
                  break;
              case '*':
-                 $('.text-area').val('');
                  num = left * right;
                  $('#leftSide').val(function(){
                      return num.toFixed(2);
                  });
                  break;
              case '/':
-                 $('.text-area').val('');
                  num = left / right;
                  $('#leftSide').val(function(){
                      return num.toFixed(2);
